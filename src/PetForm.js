@@ -17,15 +17,20 @@ const PetForm = () => (
     //     return ( 
     <div>
     <Formik
-        initialValues={{name: '', breed: '', age: ''}}
+        initialValues={{
+            name: '',
+            breed: '',
+            age: ''
+        }}
         validate={values => {
             let errors = {}
-            if(values.name === ''){
+            if(!values.name){
                 errors.name = "Name is required"
             }
             if (values.breed === '') {
                 errors.breed = "Breed is required"
-            } else if (values.breed.length < 3){
+            } 
+            else if (values.breed.length < 3){
                 errors.breed = "Breed must be at least 3 characters long"
             }
             if (values.age === ''){
@@ -36,7 +41,8 @@ const PetForm = () => (
                     // }
             return errors 
         }}
-        onSubmit={( values, { setSubmitting }) => {
+        
+        onSubmit={( { setSubmitting }) => {
             alert("Form is validated! Submitting the form...")
             setSubmitting(false)
         }}>
