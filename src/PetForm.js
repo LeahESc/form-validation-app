@@ -46,7 +46,7 @@ const PetForm = () => (
             handleChange,
             handleBlur,
             handleSubmit,
-            isSubbmiting,
+            isSubmitting,
             }) => ( 
                 <form onSubmit={handleSubmit}> 
                     <input 
@@ -62,7 +62,7 @@ const PetForm = () => (
                     name="breed"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    value={values.name}
+                    value={values.breed}
                     />
                     {errors.breed && touched.breed & errors.breed}
                     <input 
@@ -70,10 +70,10 @@ const PetForm = () => (
                     name="age"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    value={values.name}
+                    value={values.age}
                     />
                     {errors.age && touched.age && errors.age}
-                    <button type="submit">Submit</button>
+                    <button type="submit" disabled={isSubmitting}>Submit</button>
                 </form>    
             )}
     </Formik> 
