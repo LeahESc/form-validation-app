@@ -8,18 +8,27 @@ class Form extends Component {
     }
 
     handleChange = (e) => { 
+        this.setState({
+            ...this.state,
+            [e.target.name]: e.target.value,
+        })
+    }
+
+    handleSubmit = (e) => { 
+        e.preventDefault()
         let n = e.target.name 
         let val = e.target.value 
         let err = ''
         if (!val || val === ' '){
             err = 'This field is required'
+            this.setState({
+                ...this.state,
+                [e.target.name]: e.target.value,
+                errorMessage: err
+            })  
         }
-        this.setState({
-            ...this.state,
-            [e.target.name]: e.target.value,
-            errorMessage: err
-        })    
     }
+// handle form submission here 
 
     render() {
         return (
